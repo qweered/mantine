@@ -1,4 +1,5 @@
-import { forwardRef, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useDirection } from '../../../core';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import {
@@ -24,7 +25,7 @@ export const ScrollAreaScrollbarVisible = forwardRef<
   const context = useScrollAreaContext();
   const thumbRef = useRef<HTMLDivElement | null>(null);
   const pointerOffsetRef = useRef(0);
-  const [sizes, setSizes] = useState<Sizes>({
+  const [sizes, setSizes] = useAtom<Sizes>({
     content: 0,
     viewport: 0,
     scrollbar: { size: 0, paddingStart: 0, paddingEnd: 0 },

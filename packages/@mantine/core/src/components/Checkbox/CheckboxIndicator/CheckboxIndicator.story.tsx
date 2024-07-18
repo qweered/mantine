@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Checkbox } from '../Checkbox';
 import { CheckboxIndicator } from './CheckboxIndicator';
 
 export default { title: 'CheckboxIndicator' };
 
 export function Usage() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <CheckboxIndicator checked={checked} onClick={() => setChecked((c) => !c)} />
@@ -26,7 +26,7 @@ export function Usage() {
 }
 
 export function Sizes() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
   const indicators = sizes.map((size) => (
     <CheckboxIndicator

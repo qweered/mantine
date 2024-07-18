@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { IconPictureInPicture } from '@tabler/icons-react';
 import { Accordion } from './Accordion';
 
@@ -113,7 +113,7 @@ export const Multiple = () => (
 );
 
 export const ControlledSingle = () => {
-  const [value, setValue] = useState<string | null>(null);
+  const [value, setValue] = useAtom<string | null>(null);
   return (
     <Accordion value={value} onChange={setValue} style={{ maxWidth: 400 }} mx="auto">
       {_items}
@@ -122,7 +122,7 @@ export const ControlledSingle = () => {
 };
 
 export const ControlledMultiple = () => {
-  const [value, setValue] = useState<string[]>([]);
+  const [value, setValue] = useAtom<string[]>([]);
   return (
     <Accordion multiple value={value} onChange={setValue} style={{ maxWidth: 400 }} mx="auto">
       {_items}

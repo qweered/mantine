@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { ScrollAreaScrollbarAuto, ScrollAreaScrollbarAutoProps } from './ScrollAreaScrollbarAuto';
 
@@ -10,9 +11,9 @@ export const ScrollAreaScrollbarHover = forwardRef<HTMLDivElement, ScrollAreaScr
   (props, ref) => {
     const { forceMount, ...scrollbarProps } = props;
     const context = useScrollAreaContext();
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useAtom(false);
 
-    useEffect(() => {
+    useUpdate(() => {
       const { scrollArea } = context;
       let hideTimer = 0;
       if (scrollArea) {

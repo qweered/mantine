@@ -1,4 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { DEFAULT_THEME, MantineSize } from '../../core';
 import { Button } from '../Button';
 import { PinInput } from './PinInput';
@@ -6,7 +7,7 @@ import { PinInput } from './PinInput';
 export default { title: 'PinInput' };
 
 export function Usage() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
   return (
     <div style={{ padding: 40 }}>
       <PinInput id="test-id" value={value} onChange={setValue} />
@@ -21,9 +22,9 @@ const sleep = (ms: number) =>
   });
 
 export function AsyncReset() {
-  const [value, setValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useAtom('');
+  const [errorMessage, setErrorMessage] = useAtom('');
+  const [isLoading, setIsLoading] = useAtom(false);
 
   const login = useCallback(async (code: string) => {
     /* ... */
@@ -88,7 +89,7 @@ export function Unstyled() {
 }
 
 export function OnComplete() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
   return (
     <div style={{ padding: 40 }}>
       <PinInput length={5} onComplete={setValue} />
@@ -98,7 +99,7 @@ export function OnComplete() {
 }
 
 export function ResetControlled() {
-  const [value, setValue] = useState('1234');
+  const [value, setValue] = useAtom('1234');
 
   return (
     <div style={{ padding: 40 }}>
@@ -125,7 +126,7 @@ export function Autofocus() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
   return (
     <div style={{ padding: 40 }}>
       <PinInput value={value} onChange={setValue} />
@@ -135,7 +136,7 @@ export function Controlled() {
 }
 
 export function Mask() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
   return (
     <div style={{ padding: 40 }}>
       <PinInput value={value} onChange={setValue} mask />

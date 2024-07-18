@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Button } from '../Button';
 import { Group } from '../Group';
 import { Stepper } from './Stepper';
@@ -6,7 +6,7 @@ import { Stepper } from './Stepper';
 export default { title: 'Stepper' };
 
 export function Usage() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useAtom(1);
   const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
@@ -36,7 +36,7 @@ export function Usage() {
 }
 
 export function Unstyled() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useAtom(1);
   const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
@@ -66,7 +66,7 @@ export function Unstyled() {
 }
 
 export function Vertical() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useAtom(1);
   const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
@@ -96,7 +96,7 @@ export function Vertical() {
 }
 
 export function RightIconPosition() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useAtom(1);
   const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 

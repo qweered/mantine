@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Box, MantineThemeProvider } from '../../core';
 import { Group } from '../Group';
 import { Tooltip } from '../Tooltip';
@@ -89,7 +89,7 @@ export function WithArrowRadius() {
 }
 
 export function Controlled() {
-  const [opened, setState] = useState(false);
+  const [opened, setState] = useAtom(false);
 
   return (
     <div style={{ padding: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -120,7 +120,7 @@ export function Controlled() {
 }
 
 export function KeepMounted() {
-  const [opened, setState] = useState(false);
+  const [opened, setState] = useAtom(false);
 
   return (
     <div style={{ padding: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -142,7 +142,7 @@ export function KeepMounted() {
 }
 
 export function SameWidth() {
-  const [opened, setState] = useState(false);
+  const [opened, setState] = useAtom(false);
 
   return (
     <div style={{ padding: 40 }}>
@@ -218,7 +218,7 @@ export function Inline() {
 }
 
 export function Size() {
-  const [opened, setState] = useState(false);
+  const [opened, setState] = useAtom(false);
 
   return (
     <div style={{ padding: 40 }}>
@@ -242,9 +242,9 @@ export function Size() {
 }
 
 export function PopoverEvents() {
-  const [opened, setState] = useState(false);
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
+  const [opened, setState] = useAtom(false);
+  const [toggle1, setToggle1] = useAtom(false);
+  const [toggle2, setToggle2] = useAtom(false);
 
   return (
     <div style={{ padding: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

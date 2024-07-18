@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import { createCtx } from '@reatom/framework';
+import { reatomContext } from '@reatom/npm-react';
 import { addons } from '@storybook/preview-api';
 import { IconTextDirectionLtr, IconTextDirectionRtl } from '@tabler/icons-react';
+import { theme } from 'docs/theme';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import {
   ActionIcon,
@@ -12,7 +15,6 @@ import {
 import { MantineEmotionProvider } from '@mantine/emotion';
 import { ModalsProvider } from '@mantine/modals';
 import { ShikiProvider } from '@mantinex/shiki';
-import { theme } from '../apps/mantine.dev/theme';
 
 export const parameters = { layout: 'fullscreen' };
 
@@ -62,6 +64,8 @@ async function loadShiki() {
   return shiki;
 }
 
+const ctx = createCtx();
+
 export const decorators = [
   (renderStory: any) => <DirectionWrapper>{renderStory()}</DirectionWrapper>,
   (renderStory: any) => <ColorSchemeWrapper>{renderStory()}</ColorSchemeWrapper>,
@@ -78,5 +82,8 @@ export const decorators = [
     <MantineProvider theme={theme}>
       <MantineEmotionProvider>{renderStory()}</MantineEmotionProvider>
     </MantineProvider>
+  ),
+  (renderStory: any) => (
+    <reatomContext.Provider value={ctx}>{renderStory()}</reatomContext.Provider>
   ),
 ];

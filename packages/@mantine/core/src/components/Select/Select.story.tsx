@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Button } from '../Button';
 import { Select } from './Select';
 
@@ -149,7 +149,7 @@ export function Clearable() {
 }
 
 export function DataChangesOverTime() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useAtom<any[]>([]);
   return (
     <div style={{ padding: 40 }}>
       <Select
@@ -201,8 +201,8 @@ export function SearchControlledValue() {
 }
 
 export function ControlledSearchAndValue() {
-  const [value, setValue] = useState<string | null>('Angular');
-  const [searchValue, setSearchValue] = useState('');
+  const [value, setValue] = useAtom<string | null>('Angular');
+  const [searchValue, setSearchValue] = useAtom('');
 
   return (
     <div style={{ padding: 40 }}>
@@ -239,7 +239,7 @@ export function ReadOnly() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState<string | null>('React');
+  const [value, setValue] = useAtom<string | null>('React');
   return (
     <div style={{ padding: 40 }}>
       <Select

@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { MantineProvider } from './MantineProvider';
 
 export default { title: 'MantineProvider' };
 
 export function ForceColorScheme() {
-  const [forceColorScheme, setForceColorScheme] = useState<'light' | 'dark' | undefined>(undefined);
+  const [forceColorScheme, setForceColorScheme] = useAtom<'light' | 'dark' | undefined>(undefined);
   return (
     <div style={{ padding: 40 }}>
       <MantineProvider forceColorScheme={forceColorScheme} defaultColorScheme="auto">

@@ -1,4 +1,5 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { ScrollAreaScrollbarAuto } from './ScrollAreaScrollbarAuto';
 import { ScrollAreaScrollbarHover } from './ScrollAreaScrollbarHover';
@@ -19,7 +20,7 @@ export const ScrollAreaScrollbar = forwardRef<HTMLDivElement, ScrollAreaScrollba
     const { onScrollbarXEnabledChange, onScrollbarYEnabledChange } = context;
     const isHorizontal = props.orientation === 'horizontal';
 
-    useEffect(() => {
+    useUpdate(() => {
       isHorizontal ? onScrollbarXEnabledChange(true) : onScrollbarYEnabledChange(true);
       return () => {
         isHorizontal ? onScrollbarXEnabledChange(false) : onScrollbarYEnabledChange(false);

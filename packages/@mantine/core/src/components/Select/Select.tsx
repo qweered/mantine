@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useId, usePrevious, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -191,13 +192,13 @@ export const Select = factory<SelectFactory>((_props, ref) => {
     classNames,
   });
 
-  useEffect(() => {
+  useUpdate(() => {
     if (selectFirstOptionOnChange) {
       combobox.selectFirstOption();
     }
   }, [selectFirstOptionOnChange, _value]);
 
-  useEffect(() => {
+  useUpdate(() => {
     if (value === null) {
       setSearch('');
     }

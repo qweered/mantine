@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+import { createCtx } from '@reatom/framework';
 import { ConvertCSSVariablesInput } from './convert-css-variables';
 import type { MantineColorScheme, MantineTheme } from './theme.types';
 
@@ -21,16 +22,17 @@ interface MantineContextValue {
   stylesTransform?: MantineStylesTransform;
 }
 
+export const ctx = createCtx();
 export const MantineContext = createContext<MantineContextValue | null>(null);
 
 export function useMantineContext() {
-  const ctx = useContext(MantineContext);
+  const context = useContext(MantineContext);
 
-  if (!ctx) {
+  if (!context) {
     throw new Error('[@mantine/core] MantineProvider was not found in tree');
   }
 
-  return ctx;
+  return context;
 }
 
 export function useMantineCssVariablesResolver() {

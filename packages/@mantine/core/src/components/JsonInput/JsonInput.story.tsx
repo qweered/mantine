@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { JsonInput } from './JsonInput';
 
 export default { title: 'JsonInput' };
@@ -25,7 +25,7 @@ export function ReadOnly() {
 }
 
 export function Controlled() {
-  const [value, onChange] = useState('');
+  const [value, onChange] = useAtom('');
   return (
     <JsonInput
       value={value}

@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useDidUpdate, useUncontrolled } from '@mantine/hooks';
 import {
   Box,
@@ -186,7 +187,7 @@ export const ColorPicker = factory<ColorPickerFactory>((_props, ref) => {
     onChange,
   });
 
-  const [parsed, setParsed] = useState<HsvaColor>(parseColor(_value));
+  const [parsed, setParsed] = useAtom<HsvaColor>(parseColor(_value));
 
   const startScrubbing = () => {
     window.clearTimeout(scrubTimeoutRef.current);

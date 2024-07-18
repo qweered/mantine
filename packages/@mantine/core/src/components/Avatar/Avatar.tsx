@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import {
   Box,
   BoxProps,
@@ -138,7 +138,7 @@ export const Avatar = polymorphicFactory<AvatarFactory>((_props, ref) => {
     ...others
   } = props;
   const ctx = useAvatarGroupContext();
-  const [error, setError] = useState(!src);
+  const [error, setError] = useAtom(!src);
 
   const getStyles = useStyles<AvatarFactory>({
     name: 'Avatar',
@@ -153,7 +153,9 @@ export const Avatar = polymorphicFactory<AvatarFactory>((_props, ref) => {
     varsResolver,
   });
 
-  useEffect(() => setError(!src), [src]);
+  useUpdate(() => {
+    setError(!src);
+  }, [src]);
 
   return (
     <Box

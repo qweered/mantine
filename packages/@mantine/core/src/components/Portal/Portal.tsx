@@ -1,4 +1,5 @@
-import { forwardRef, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { createPortal } from 'react-dom';
 import { assignRef, useIsomorphicEffect } from '@mantine/hooks';
 import { useProps } from '../../core';
@@ -26,7 +27,7 @@ const defaultProps: Partial<PortalProps> = {};
 export const Portal = forwardRef<HTMLDivElement, PortalProps>((props, ref) => {
   const { children, target, ...others } = useProps('Portal', defaultProps, props);
 
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useAtom(false);
   const nodeRef = useRef<HTMLElement | null>(null);
 
   useIsomorphicEffect(() => {

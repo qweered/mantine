@@ -1,4 +1,5 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useMergedRef } from '@mantine/hooks';
 import { Box, BoxProps, ElementProps, Factory, useProps } from '../../../core';
 import { ScrollAreaProvider } from '../ScrollArea.context';
@@ -53,15 +54,15 @@ export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>((_
   const props = useProps('ScrollAreaRoot', defaultProps, _props);
   const { type, scrollHideDelay, scrollbars, ...others } = props;
 
-  const [scrollArea, setScrollArea] = useState<HTMLDivElement | null>(null);
-  const [viewport, setViewport] = useState<HTMLDivElement | null>(null);
-  const [content, setContent] = useState<HTMLDivElement | null>(null);
-  const [scrollbarX, setScrollbarX] = useState<HTMLDivElement | null>(null);
-  const [scrollbarY, setScrollbarY] = useState<HTMLDivElement | null>(null);
-  const [cornerWidth, setCornerWidth] = useState(0);
-  const [cornerHeight, setCornerHeight] = useState(0);
-  const [scrollbarXEnabled, setScrollbarXEnabled] = useState(false);
-  const [scrollbarYEnabled, setScrollbarYEnabled] = useState(false);
+  const [scrollArea, setScrollArea] = useAtom<HTMLDivElement | null>(null);
+  const [viewport, setViewport] = useAtom<HTMLDivElement | null>(null);
+  const [content, setContent] = useAtom<HTMLDivElement | null>(null);
+  const [scrollbarX, setScrollbarX] = useAtom<HTMLDivElement | null>(null);
+  const [scrollbarY, setScrollbarY] = useAtom<HTMLDivElement | null>(null);
+  const [cornerWidth, setCornerWidth] = useAtom(0);
+  const [cornerHeight, setCornerHeight] = useAtom(0);
+  const [scrollbarXEnabled, setScrollbarXEnabled] = useAtom(false);
+  const [scrollbarYEnabled, setScrollbarYEnabled] = useAtom(false);
   const rootRef = useMergedRef(ref, (node) => setScrollArea(node));
 
   return (

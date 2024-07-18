@@ -1,4 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { clamp, useMergedRef, useMove, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -187,7 +188,7 @@ export const Slider = factory<SliderFactory>((_props, ref) => {
   });
 
   const { dir } = useDirection();
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useAtom(false);
   const [_value, setValue] = useUncontrolled({
     value: typeof value === 'number' ? clamp(value, min!, max!) : value,
     defaultValue: typeof defaultValue === 'number' ? clamp(defaultValue, min!, max!) : defaultValue,

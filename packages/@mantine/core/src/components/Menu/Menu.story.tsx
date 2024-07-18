@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { IconSearch, IconTable } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import { Button } from '../Button';
@@ -155,7 +155,7 @@ export function MenuTargetWithTooltip() {
 }
 
 export function Controlled() {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useAtom(false);
   return (
     <div style={{ padding: 100 }}>
       <Menu opened={opened} onChange={setOpened}>

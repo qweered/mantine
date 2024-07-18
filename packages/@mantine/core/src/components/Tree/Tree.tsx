@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useClickOutside, useMergedRef } from '@mantine/hooks';
 import {
   Box,
@@ -161,7 +162,7 @@ export const Tree = factory<TreeFactory>((_props, ref) => {
 
   const flatValues = useMemo(() => getFlatValues(data), [data]);
 
-  useEffect(() => {
+  useUpdate(() => {
     controller.initialize(data);
   }, [data]);
 

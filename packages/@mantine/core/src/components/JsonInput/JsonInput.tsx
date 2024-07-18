@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useUncontrolled } from '@mantine/hooks';
 import { factory, Factory, useProps } from '../../core';
 import { __InputStylesNames } from '../Input';
@@ -63,7 +63,7 @@ export const JsonInput = factory<JsonInputFactory>((props, ref) => {
     onChange,
   });
 
-  const [valid, setValid] = useState(validateJson(_value, deserialize!));
+  const [valid, setValid] = useAtom(validateJson(_value, deserialize!));
 
   const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     onFocus?.(event);

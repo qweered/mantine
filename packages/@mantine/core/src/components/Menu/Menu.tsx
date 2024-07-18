@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useDidUpdate, useUncontrolled } from '@mantine/hooks';
 import {
   ExtendComponent,
@@ -142,7 +142,7 @@ export function Menu(_props: MenuProps) {
     finalValue: false,
     onChange,
   });
-  const [openedViaClick, setOpenedViaClick] = useState(false);
+  const [openedViaClick, setOpenedViaClick] = useAtom(false);
 
   const close = () => {
     setOpened(false);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Button } from '../Button';
 import { Group } from '../Group';
 import { TextInput } from '../TextInput';
@@ -170,7 +170,7 @@ export function Unstyled() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState<string[]>(['React']);
+  const [value, setValue] = useAtom<string[]>(['React']);
   return (
     <div style={{ padding: 40, maxWidth: 400 }}>
       <MultiSelect

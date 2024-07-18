@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useId, useMergedRef, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -343,7 +344,7 @@ export const TagsInput = factory<TagsInputFactory>((_props, ref) => {
     </Pill>
   ));
 
-  useEffect(() => {
+  useUpdate(() => {
     if (selectFirstOptionOnChange) {
       combobox.selectFirstOption();
     }

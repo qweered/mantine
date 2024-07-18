@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Radio } from '../Radio';
 import { RadioIndicator } from './RadioIndicator';
 
 export default { title: 'RadioIndicator' };
 
 export function Usage() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <RadioIndicator checked={checked} onClick={() => setChecked((c) => !c)} />
@@ -22,7 +22,7 @@ export function Usage() {
 }
 
 export function Sizes() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
   const indicators = sizes.map((size) => (
     <RadioIndicator

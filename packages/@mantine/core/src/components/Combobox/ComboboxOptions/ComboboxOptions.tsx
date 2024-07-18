@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useId } from '@mantine/hooks';
 import {
   Box,
@@ -37,7 +37,7 @@ export const ComboboxOptions = factory<ComboboxOptionsFactory>((_props, ref) => 
   const ctx = useComboboxContext();
   const _id = useId(id);
 
-  useEffect(() => {
+  useUpdate(() => {
     ctx.store.setListId(_id);
   }, [_id]);
 

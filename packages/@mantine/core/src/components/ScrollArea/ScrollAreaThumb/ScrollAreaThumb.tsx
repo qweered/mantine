@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useDebouncedCallback, useMergedRef } from '@mantine/hooks';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { useScrollbarContext } from '../ScrollAreaScrollbar/Scrollbar.context';
@@ -20,7 +21,7 @@ export const Thumb = forwardRef<HTMLDivElement, ThumbProps>((props, forwardedRef
     }
   }, 100);
 
-  useEffect(() => {
+  useUpdate(() => {
     const { viewport } = scrollAreaContext;
     if (viewport) {
       const handleScroll = () => {

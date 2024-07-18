@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import {
   clampUseMovePosition,
   useDidUpdate,
@@ -94,7 +95,7 @@ export const ColorSlider = factory<ColorSliderFactory>((_props, ref) => {
   const getStyles = ctxGetStyles || _getStyles;
 
   const theme = useMantineTheme();
-  const [position, setPosition] = useState({ y: 0, x: value / maxValue });
+  const [position, setPosition] = useAtom({ y: 0, x: value / maxValue });
   const positionRef = useRef(position);
   const getChangeValue = (val: number) => (round ? Math.round(val * maxValue) : val * maxValue);
   const { ref: sliderRef } = useMove(

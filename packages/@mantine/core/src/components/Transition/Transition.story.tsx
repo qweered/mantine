@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Transition } from './Transition';
 
 export default { title: 'Transition' };
 
 export function Usage() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <Transition mounted={mounted} transition="pop">
@@ -21,7 +21,7 @@ export function Usage() {
 }
 
 export function ExitDuration() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <Transition mounted={mounted} transition="pop" duration={100} exitDuration={1000}>
@@ -48,7 +48,7 @@ export function ExitDuration() {
 }
 
 export function WithDelay() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useAtom(false);
 
   return (
     <div style={{ padding: 40 }}>

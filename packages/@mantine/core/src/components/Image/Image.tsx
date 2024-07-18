@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import {
   Box,
   BoxProps,
@@ -70,9 +70,11 @@ export const Image = polymorphicFactory<ImageFactory>((_props, ref) => {
     ...others
   } = props;
 
-  const [error, setError] = useState(!src);
+  const [error, setError] = useAtom(!src);
 
-  useEffect(() => setError(!src), [src]);
+  useUpdate(() => {
+    setError(!src);
+  }, [src]);
 
   const getStyles = useStyles<ImageFactory>({
     name: 'Image',

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Anchor } from '../Anchor';
 import { Button } from '../Button';
 import { Popover } from '../Popover';
@@ -31,9 +31,9 @@ const scrollableContent = Array(20)
   .map((_, index) => <p key={index}>{lorem}</p>);
 
 function StoryBase({ children }: { children: React.ReactNode }) {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useAtom(true);
   const store = useCombobox({ opened, onOpenedChange: setOpened });
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
 
   return (
     <div style={{ padding: 40 }}>
@@ -119,7 +119,7 @@ export function AllItemsDisabled() {
 }
 
 export function WithButtonTarget() {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useAtom('');
 
   const store = useCombobox({
     onDropdownOpen: () => store.focusSearchInput(),
@@ -184,7 +184,7 @@ export function WithButtonTarget() {
 
 export function WithScrollArea() {
   const store = useCombobox({ defaultOpened: true });
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
 
   return (
     <div style={{ padding: 40 }}>
@@ -223,8 +223,8 @@ const fruitsData = [
 
 export function WithActive() {
   const store = useCombobox();
-  const [active, setActive] = useState<string | null>(null);
-  const [value, setValue] = useState('');
+  const [active, setActive] = useAtom<string | null>(null);
+  const [value, setValue] = useAtom('');
 
   const options = fruitsData.map((fruit) => (
     <Combobox.Option value={fruit.value} key={fruit.value} active={active === fruit.value}>
@@ -341,8 +341,8 @@ export function WithGroups() {
 
 export function InteractiveHeaderAndFooter() {
   const store = useCombobox();
-  const [active, setActive] = useState<string | null>(null);
-  const [value, setValue] = useState('');
+  const [active, setActive] = useAtom<string | null>(null);
+  const [value, setValue] = useAtom('');
 
   const options = fruitsData.map((fruit) => (
     <Combobox.Option value={fruit.value} key={fruit.value} active={active === fruit.value}>

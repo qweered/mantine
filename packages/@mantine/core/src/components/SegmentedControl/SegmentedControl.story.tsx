@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineThemeProvider } from '../../core';
 import { Button } from '../Button';
@@ -112,11 +112,12 @@ export function FocusRingAlways() {
 }
 
 export function SelectedItemRemoved() {
-  const [value, setValue] = useState('');
-  const [breakingThings, setBreakingThings] = useState(false);
+  const [value, setValue] = useAtom('');
+  const [breakingThings, setBreakingThings] = useAtom(false);
 
-  const dataList =
-    breakingThings === true ? ['1', '2', '3'].filter((elem) => elem !== '3') : ['1', '2', '3'];
+  const dataList = breakingThings
+    ? ['1', '2', '3'].filter((elem) => elem !== '3')
+    : ['1', '2', '3'];
 
   return (
     <div style={{ padding: 40 }}>
@@ -130,7 +131,7 @@ export function SelectedItemRemoved() {
 }
 
 export function Unselect() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useAtom('');
 
   const dataList = ['1', '2', '3'];
 
