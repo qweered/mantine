@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useForm } from '@mantine/form';
 import { Button } from '../Button';
 import { Group } from '../Group';
@@ -9,7 +10,7 @@ import { NumberInput, NumberInputHandlers } from './NumberInput';
 export default { title: 'NumberInput' };
 
 export function Usage() {
-  const [value, setValue] = useState<number | string>(345);
+  const [value, setValue] = useAtom<number | string>(345);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -26,7 +27,7 @@ export function Usage() {
 }
 
 export function LargeNumbers() {
-  const [val, setVal] = useState<string | number>('');
+  const [val, setVal] = useAtom<string | number>('');
 
   return (
     <>
@@ -47,7 +48,7 @@ export function LargeNumbers() {
 }
 
 export function AllowLeadingZeros() {
-  const [value, setValue] = useState<number | string>('');
+  const [value, setValue] = useAtom<number | string>('');
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -72,7 +73,7 @@ export function MinWithStartValue() {
 }
 
 export function OnChangeValue() {
-  const [value, setValue] = useState<number | string>(345);
+  const [value, setValue] = useAtom<number | string>(345);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -112,7 +113,7 @@ export function RightSectionSizes() {
 }
 
 export function Unstyled() {
-  const [value, setValue] = useState<number | string>(345);
+  const [value, setValue] = useAtom<number | string>(345);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -129,7 +130,7 @@ export function Unstyled() {
 }
 
 export function ReadOnly() {
-  const [value, setValue] = useState<number | string>(345);
+  const [value, setValue] = useAtom<number | string>(345);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -144,7 +145,7 @@ export function ReadOnly() {
 }
 
 export function MinMax() {
-  const [value, setValue] = useState<number | string>(15);
+  const [value, setValue] = useAtom<number | string>(15);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -164,7 +165,7 @@ export function MinMax() {
 }
 
 export function NegativeMin() {
-  const [value, setValue] = useState<number | string>(0);
+  const [value, setValue] = useAtom<number | string>(0);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -182,7 +183,7 @@ export function NegativeMin() {
 }
 
 export function NoDecimals() {
-  const [value, setValue] = useState<number | string>(15);
+  const [value, setValue] = useAtom<number | string>(15);
   return (
     <div style={{ padding: 40 }}>
       <NumberInput
@@ -199,7 +200,7 @@ export function NoDecimals() {
 }
 
 export function Handlers() {
-  const [value, setValue] = useState<number | string>(15);
+  const [value, setValue] = useAtom<number | string>(15);
   const handlersRef = useRef<NumberInputHandlers>(null);
   return (
     <div style={{ padding: 40 }}>
@@ -256,7 +257,7 @@ export function FormValidateOnBlur() {
 }
 
 export function ExternalOnChange() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useAtom(0);
   return (
     <div>
       <NumberInput

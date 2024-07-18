@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useMove, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -201,8 +202,8 @@ export const RangeSlider = factory<RangeSliderFactory>((_props, ref) => {
   });
 
   const { dir } = useDirection();
-  const [focused, setFocused] = useState(-1);
-  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useAtom(-1);
+  const [hovered, setHovered] = useAtom(false);
   const [_value, setValue] = useUncontrolled<RangeSliderValue>({
     value,
     defaultValue,
@@ -224,7 +225,7 @@ export const RangeSlider = factory<RangeSliderFactory>((_props, ref) => {
     valueRef.current = val;
   };
 
-  useEffect(
+  useUpdate(
     () => {
       if (Array.isArray(value)) {
         valueRef.current = value;

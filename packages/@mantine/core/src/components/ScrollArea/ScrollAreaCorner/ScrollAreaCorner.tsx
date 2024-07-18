@@ -1,4 +1,5 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { useResizeObserver } from '../use-resize-observer';
 
@@ -7,8 +8,8 @@ interface ScrollAreaCornerProps extends React.ComponentPropsWithoutRef<'div'> {}
 export const Corner = forwardRef<HTMLDivElement, ScrollAreaCornerProps>((props, ref) => {
   const { style, ...others } = props;
   const ctx = useScrollAreaContext();
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useAtom(0);
+  const [height, setHeight] = useAtom(0);
   const hasSize = Boolean(width && height);
 
   useResizeObserver(ctx.scrollbarX, () => {

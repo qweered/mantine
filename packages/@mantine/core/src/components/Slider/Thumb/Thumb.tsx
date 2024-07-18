@@ -1,4 +1,5 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Box } from '../../../core';
 import { Transition, TransitionOverride } from '../../Transition';
 import { useSliderContext } from '../Slider.context';
@@ -52,7 +53,7 @@ export const Thumb = forwardRef<HTMLDivElement, ThumbProps>(
   ) => {
     const { getStyles } = useSliderContext();
 
-    const [focused, setFocused] = useState(false);
+    const [focused, setFocused] = useAtom(false);
 
     const isVisible = labelAlwaysOn || dragging || focused || (showLabelOnHover && isHovered);
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Button } from '../Button';
 import { Group } from '../Group';
 import { Pagination } from './Pagination';
@@ -6,7 +6,7 @@ import { Pagination } from './Pagination';
 export default { title: 'Pagination' };
 
 export function DynamicTotal() {
-  const [total, setTotal] = useState(20);
+  const [total, setTotal] = useAtom(20);
   return (
     <div style={{ padding: 40 }}>
       <Pagination total={total} mb="xl" />
@@ -23,7 +23,7 @@ export function AutoContrast() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useAtom(1);
   return (
     <>
       Current page: {value}
@@ -33,7 +33,7 @@ export function Controlled() {
 }
 
 export function Unstyled() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useAtom(1);
   return (
     <>
       Current page: {value}

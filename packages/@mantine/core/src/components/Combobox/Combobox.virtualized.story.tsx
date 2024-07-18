@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Virtuoso } from 'react-virtuoso';
 import { ScrollArea } from '../ScrollArea';
 import { TextInput } from '../TextInput';
@@ -17,9 +18,9 @@ const largeData = Array(10000)
   }));
 
 export function Virtualized() {
-  const [opened, setOpened] = useState(false);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  const [value, setValue] = useState('');
+  const [opened, setOpened] = useAtom(false);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useAtom(0);
+  const [value, setValue] = useAtom('');
   const virtuoso = useRef<any>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
 

@@ -1,4 +1,5 @@
-import { startTransition, useRef, useState } from 'react';
+import { startTransition, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useIsomorphicEffect, useWindowEvent } from '@mantine/hooks';
 
 interface UseResizingInput {
@@ -7,7 +8,7 @@ interface UseResizingInput {
 }
 
 export function useResizing({ transitionDuration, disabled }: UseResizingInput) {
-  const [resizing, setResizing] = useState(true);
+  const [resizing, setResizing] = useAtom(true);
   const resizingTimeout = useRef<number>();
   const disabledTimeout = useRef<number>();
 

@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { clamp, useId, useMergedRef, useUncontrolled } from '@mantine/hooks';
 import {
   Box,
@@ -166,8 +167,8 @@ export const Rating = factory<RatingFactory>((_props, ref) => {
     onChange,
   });
 
-  const [hovered, setHovered] = useState(-1);
-  const [isOutside, setOutside] = useState(true);
+  const [hovered, setHovered] = useAtom(-1);
+  const [isOutside, setOutside] = useAtom(true);
 
   const _fractions = Math.floor(fractions!);
   const _count = Math.floor(count!);

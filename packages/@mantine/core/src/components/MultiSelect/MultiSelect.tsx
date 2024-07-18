@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useId, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -273,7 +273,7 @@ export const MultiSelect = factory<MultiSelectFactory>((_props, ref) => {
     </Pill>
   ));
 
-  useEffect(() => {
+  useUpdate(() => {
     if (selectFirstOptionOnChange) {
       combobox.selectFirstOption();
     }

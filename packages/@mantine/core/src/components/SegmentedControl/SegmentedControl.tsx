@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useId, useMergedRef, useMounted, useUncontrolled } from '@mantine/hooks';
 import {
   Box,
@@ -176,8 +176,8 @@ export const SegmentedControl = factory<SegmentedControlFactory>((_props, ref) =
   );
 
   const initialized = useMounted();
-  const [parent, setParent] = useState<HTMLElement | null>(null);
-  const [refs, setRefs] = useState<Record<string, HTMLElement | null>>({});
+  const [parent, setParent] = useAtom<HTMLElement | null>(null);
+  const [refs, setRefs] = useAtom<Record<string, HTMLElement | null>>({});
   const setElementRef = (element: HTMLElement | null, val: string) => {
     refs[val] = element;
     setRefs(refs);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { MantineThemeProvider } from '../../core';
 import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
@@ -27,7 +27,7 @@ export function Usage() {
 }
 
 export function BooleanError() {
-  const [error, setError] = useState(false);
+  const [error, setError] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <Checkbox

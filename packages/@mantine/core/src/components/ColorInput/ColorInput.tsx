@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useDidUpdate, useEyeDropper, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -152,8 +152,8 @@ export const ColorInput = factory<ColorInputFactory>((_props, ref) => {
     props,
   });
 
-  const [dropdownOpened, setDropdownOpened] = useState(false);
-  const [lastValidValue, setLastValidValue] = useState('');
+  const [dropdownOpened, setDropdownOpened] = useAtom(false);
+  const [lastValidValue, setLastValidValue] = useAtom('');
   const [_value, setValue] = useUncontrolled({
     value,
     defaultValue,
@@ -206,7 +206,7 @@ export const ColorInput = factory<ColorInputFactory>((_props, ref) => {
     setDropdownOpened(true);
   };
 
-  useEffect(() => {
+  useUpdate(() => {
     if (isColorValid(_value) || _value.trim() === '') {
       setLastValidValue(_value);
     }

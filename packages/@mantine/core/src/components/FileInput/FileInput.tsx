@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useUncontrolled } from '@mantine/hooks';
 import { BoxProps, ElementProps, factory, Factory, StylesApiProps, useProps } from '../../core';
 import { CloseButton } from '../CloseButton';
 import { FileButton } from '../FileButton';
 import { __BaseInputProps, __InputStylesNames, Input, InputVariant } from '../Input';
-import { InputBase } from '../InputBase/InputBase';
+import { InputBase } from '../InputBase';
 
 export interface FileInputProps<Multiple = false>
   extends BoxProps,
@@ -118,7 +119,7 @@ const _FileInput = factory<FileInputFactory>((_props, ref) => {
       />
     ) : null);
 
-  useEffect(() => {
+  useUpdate(() => {
     if ((Array.isArray(_value) && _value.length === 0) || _value === null) {
       resetRef.current?.();
     }

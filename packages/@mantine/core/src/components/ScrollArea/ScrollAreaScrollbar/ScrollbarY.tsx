@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useMergedRef } from '@mantine/hooks';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { ScrollAreaScrollbarAxisProps } from '../ScrollArea.types';
@@ -9,11 +10,11 @@ export const ScrollAreaScrollbarY = forwardRef<HTMLDivElement, ScrollAreaScrollb
   (props, forwardedRef) => {
     const { sizes, onSizesChange, style, ...others } = props;
     const context = useScrollAreaContext();
-    const [computedStyle, setComputedStyle] = useState<CSSStyleDeclaration>();
+    const [computedStyle, setComputedStyle] = useAtom<CSSStyleDeclaration | undefined>(undefined);
     const ref = useRef<HTMLDivElement>(null);
     const composeRefs = useMergedRef(forwardedRef, ref, context.onScrollbarYChange);
 
-    useEffect(() => {
+    useUpdate(() => {
       if (ref.current) {
         setComputedStyle(window.getComputedStyle(ref.current));
       }

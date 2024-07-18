@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useDebouncedCallback } from '@mantine/hooks';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { composeEventHandlers } from '../utils';
@@ -16,10 +17,10 @@ export const ScrollAreaScrollbarScroll = forwardRef<HTMLDivElement, ScrollAreaSc
     const { forceMount, ...scrollbarProps } = props;
     const context = useScrollAreaContext();
     const isHorizontal = props.orientation === 'horizontal';
-    const [state, setState] = useState<'hidden' | 'idle' | 'interacting' | 'scrolling'>('hidden');
+    const [state, setState] = useAtom<'hidden' | 'idle' | 'interacting' | 'scrolling'>('hidden');
     const debounceScrollEnd = useDebouncedCallback(() => setState('idle'), 100);
 
-    useEffect(() => {
+    useUpdate(() => {
       if (state === 'idle') {
         const hideTimer = window.setTimeout(() => setState('hidden'), context.scrollHideDelay);
         return () => window.clearTimeout(hideTimer);
@@ -28,7 +29,7 @@ export const ScrollAreaScrollbarScroll = forwardRef<HTMLDivElement, ScrollAreaSc
       return undefined;
     }, [state, context.scrollHideDelay]);
 
-    useEffect(() => {
+    useUpdate(() => {
       const { viewport } = context;
       const scrollDirection = isHorizontal ? 'scrollLeft' : 'scrollTop';
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { AlphaSlider } from './AlphaSlider/AlphaSlider';
 import { ColorPicker } from './ColorPicker';
 import { HueSlider } from './HueSlider/HueSlider';
@@ -6,7 +6,7 @@ import { HueSlider } from './HueSlider/HueSlider';
 export default { title: 'ColorPicker' };
 
 export function SeparateAlphaSlider() {
-  const [value, onChange] = useState(1);
+  const [value, onChange] = useAtom(1);
 
   return (
     <>
@@ -17,7 +17,7 @@ export function SeparateAlphaSlider() {
 }
 
 export function SeparateHueSlider() {
-  const [value, onChange] = useState(255);
+  const [value, onChange] = useAtom(255);
 
   return (
     <>
@@ -81,7 +81,7 @@ export function Unstyled() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState('#FFFFFF');
+  const [value, setValue] = useAtom('#FFFFFF');
 
   return (
     <div style={{ padding: 40 }}>

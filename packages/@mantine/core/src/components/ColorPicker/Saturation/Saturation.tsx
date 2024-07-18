@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { clampUseMovePosition, useMove, UseMovePosition } from '@mantine/hooks';
 import { Box, ElementProps, MantineSize } from '../../../core';
 import { useColorPickerContext } from '../ColorPicker.context';
@@ -33,7 +34,7 @@ export function Saturation({
 }: SaturationProps) {
   const { getStyles } = useColorPickerContext()!;
 
-  const [position, setPosition] = useState({ x: value.s / 100, y: 1 - value.v / 100 });
+  const [position, setPosition] = useAtom({ x: value.s / 100, y: 1 - value.v / 100 });
   const positionRef = useRef(position);
 
   const { ref } = useMove(
@@ -51,7 +52,7 @@ export function Saturation({
     }
   );
 
-  useEffect(() => {
+  useUpdate(() => {
     setPosition({ x: value.s / 100, y: 1 - value.v / 100 });
   }, [value.s, value.v]);
 

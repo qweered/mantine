@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useUpdate } from '@reatom/npm-react';
 import { useId, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -123,7 +123,7 @@ export const Autocomplete = factory<AutocompleteFactory>((_props, ref) => {
     classNames,
   });
 
-  useEffect(() => {
+  useUpdate(() => {
     if (selectFirstOptionOnChange) {
       combobox.selectFirstOption();
     }

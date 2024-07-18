@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { Tooltip } from './Tooltip';
 
 export default { title: 'Tooltip' };
@@ -100,7 +100,7 @@ export const TooltipGroup = () => (
 );
 
 export const Controlled = () => {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <Tooltip label="Tooltip 1" opened={opened}>
@@ -130,7 +130,7 @@ export const Floating = () => (
 );
 
 export const Unmount = () => {
-  const [mounted, setMounted] = useState(true);
+  const [mounted, setMounted] = useAtom(true);
   return (
     <div>
       <button type="button" onClick={() => setMounted((c) => !c)}>

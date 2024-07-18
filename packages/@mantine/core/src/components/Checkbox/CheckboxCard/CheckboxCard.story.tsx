@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { CheckboxGroup } from '../CheckboxGroup/CheckboxGroup';
 import { CheckboxIndicator } from '../CheckboxIndicator/CheckboxIndicator';
 import { CheckboxCard } from './CheckboxCard';
@@ -6,7 +6,7 @@ import { CheckboxCard } from './CheckboxCard';
 export default { title: 'CheckboxCard' };
 
 export function Usage() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <CheckboxCard p="md" checked={checked} onClick={() => setChecked((c) => !c)}>
@@ -18,7 +18,7 @@ export function Usage() {
 }
 
 export function WithinGroup() {
-  const [value, setValue] = useState<string[]>([]);
+  const [value, setValue] = useAtom<string[]>([]);
 
   return (
     <div style={{ padding: 40 }}>

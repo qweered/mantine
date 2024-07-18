@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { Accordion } from '../Accordion/Accordion';
+import { useAtom } from '@reatom/npm-react';
+import { Accordion } from '../Accordion';
 import { Spoiler } from './Spoiler';
 
 export default { title: 'Spoiler' };
 
 export function ContentChanges() {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useAtom(1);
   const randomCount = () => setCount(Math.round(Math.random() * 5 + 1));
   const content = Array(count)
     .fill(0)
@@ -71,7 +71,7 @@ export function Usage() {
 }
 
 export function Controlled() {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useAtom(false);
   return (
     <div style={{ padding: 40, maxWidth: 500 }}>
       <Spoiler

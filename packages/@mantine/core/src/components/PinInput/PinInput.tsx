@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { assignRef, useId, useUncontrolled } from '@mantine/hooks';
 import {
   BoxProps,
@@ -202,7 +203,7 @@ export const PinInput = factory<PinInputFactory>((props, ref) => {
     props,
   });
 
-  const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [focusedIndex, setFocusedIndex] = useAtom(-1);
 
   const [_value, setValues] = useUncontrolled<string[]>({
     value: value ? createPinArray(length ?? 0, value) : undefined,
@@ -340,24 +341,24 @@ export const PinInput = factory<PinInputFactory>((props, ref) => {
     }
   };
 
-  useEffect(() => {
+  useUpdate(() => {
     if (_valueToString.length !== length) return;
     onComplete?.(_valueToString);
   }, [length, _valueToString]);
 
-  useEffect(() => {
+  useUpdate(() => {
     if (length !== _value.length) {
       setValues(createPinArray(length ?? 0, _value.join('')));
     }
   }, [length, _value]);
 
-  useEffect(() => {
+  useUpdate(() => {
     if (value === '') {
       setValues(createPinArray(length ?? 0, value));
     }
   }, [value]);
 
-  useEffect(() => {
+  useUpdate(() => {
     if (disabled) {
       setFocusedIndex(-1);
     }

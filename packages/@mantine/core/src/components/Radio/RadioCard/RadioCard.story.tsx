@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { RadioIndicator } from '../RadioIndicator/RadioIndicator';
 import { RadioCard } from './RadioCard';
@@ -6,7 +6,7 @@ import { RadioCard } from './RadioCard';
 export default { title: 'RadioCard' };
 
 export function Usage() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useAtom(false);
   return (
     <div style={{ padding: 40 }}>
       <RadioCard p="md" checked={checked} onClick={() => setChecked((c) => !c)}>
@@ -18,7 +18,7 @@ export function Usage() {
 }
 
 export function WithinGroup() {
-  const [value, setValue] = useState<string | null>(null);
+  const [value, setValue] = useAtom<string | null>(null);
 
   return (
     <div style={{ padding: 40 }}>

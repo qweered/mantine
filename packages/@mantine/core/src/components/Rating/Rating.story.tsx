@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { IconMoon } from '@tabler/icons-react';
 import { Stack } from '../Stack';
 import { Rating } from './Rating';
@@ -94,7 +94,7 @@ export function Readonly() {
 }
 
 export function Controlled() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useAtom(0);
 
   return (
     <Stack p="md">

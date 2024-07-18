@@ -6065,6 +6065,118 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reatom/async@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "@reatom/async@npm:3.15.2"
+  dependencies:
+    "@reatom/core": "npm:^3.5.0"
+    "@reatom/effects": "npm:^3.7.0"
+    "@reatom/hooks": "npm:^3.2.0"
+    "@reatom/primitives": "npm:^3.5.0"
+    "@reatom/utils": "npm:^3.4.0"
+  checksum: 10c0/791f6b4f70e6e319c375ace6bfd4962e5242f53b0e6c9c67eaabbd79d255454b2e8be9a2023961b0721d99e4d691140e5f33048f247a48e083962e5f28806eb8
+  languageName: node
+  linkType: hard
+
+"@reatom/core@npm:^3.1.1, @reatom/core@npm:^3.2.0, @reatom/core@npm:^3.4.0, @reatom/core@npm:^3.5.0, @reatom/core@npm:^3.8.1, @reatom/core@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "@reatom/core@npm:3.9.0"
+  checksum: 10c0/72467ad271b5186132650ac82edcbee417e362a2cd392e8eabd38c78d05cf80cdaaa38439577196722b7042d52c09c63a98a298909bbee24f90c98313c19b2d3
+  languageName: node
+  linkType: hard
+
+"@reatom/effects@npm:^3.2.0, @reatom/effects@npm:^3.7.0, @reatom/effects@npm:^3.7.3, @reatom/effects@npm:^3.8.3":
+  version: 3.8.3
+  resolution: "@reatom/effects@npm:3.8.3"
+  dependencies:
+    "@reatom/core": "npm:^3.2.0"
+    "@reatom/utils": "npm:^3.5.0"
+  checksum: 10c0/008e4f99d56415d100015861b4682f9015b82ad452ae717029d2cad21d9370d15cbb2e8323dd07468830a6ca7f75c2afddb1c1adc07f704c5c5f257383fd35ec
+  languageName: node
+  linkType: hard
+
+"@reatom/framework@npm:^3.4.48":
+  version: 3.4.48
+  resolution: "@reatom/framework@npm:3.4.48"
+  dependencies:
+    "@reatom/async": "npm:^3.15.2"
+    "@reatom/core": "npm:^3.9.0"
+    "@reatom/effects": "npm:^3.8.3"
+    "@reatom/hooks": "npm:^3.5.5"
+    "@reatom/lens": "npm:^3.11.2"
+    "@reatom/logger": "npm:^3.8.4"
+    "@reatom/primitives": "npm:^3.7.2"
+    "@reatom/utils": "npm:^3.9.2"
+  checksum: 10c0/ec1f70303ab6e77adeea804d80620854c697b480d9abf14291eefc4656b3facc91cf036872807fa14261144ff3cc84f5002e82c9a91f6e042158437422e6a205
+  languageName: node
+  linkType: hard
+
+"@reatom/hooks@npm:^3.2.0, @reatom/hooks@npm:^3.3.1, @reatom/hooks@npm:^3.5.5":
+  version: 3.5.5
+  resolution: "@reatom/hooks@npm:3.5.5"
+  dependencies:
+    "@reatom/core": "npm:^3.2.0"
+    "@reatom/effects": "npm:^3.7.0"
+    "@reatom/utils": "npm:^3.3.0"
+  checksum: 10c0/19c701d3c147c782a015f89ccd8efc7cac953fd84cb60ee62f38c2a62137c2ef9be077b05f3aec3706b97287f927d6c5e7522b3344863fdd2238c862b8be1d85
+  languageName: node
+  linkType: hard
+
+"@reatom/lens@npm:^3.1.0, @reatom/lens@npm:^3.11.2":
+  version: 3.11.2
+  resolution: "@reatom/lens@npm:3.11.2"
+  dependencies:
+    "@reatom/core": "npm:^3.4.0"
+    "@reatom/effects": "npm:^3.2.0"
+    "@reatom/hooks": "npm:^3.3.1"
+    "@reatom/primitives": "npm:^3.6.0"
+    "@reatom/utils": "npm:^3.1.0"
+  checksum: 10c0/aeb83ca7f13b451cfae5a2ac775ce5b9becff15497adb7975d1198b3caa8aad2d28e88a137542f463aacc6163aff2eb92336a90595a3f2e2a1c9ac5ec55de0df
+  languageName: node
+  linkType: hard
+
+"@reatom/logger@npm:^3.8.4":
+  version: 3.8.4
+  resolution: "@reatom/logger@npm:3.8.4"
+  dependencies:
+    "@reatom/core": "npm:^3.8.1"
+    "@reatom/utils": "npm:^3.9.0"
+  checksum: 10c0/b949fcc5402755497f7077d0e40fc7f9d7f8fb7b8f4b64b3867dd6787f5e27970442a2f07c0d78f42770c8d86b3c6a703794cb7a5ac66030f76340b0ad383e4e
+  languageName: node
+  linkType: hard
+
+"@reatom/npm-react@npm:^3.8.10":
+  version: 3.8.10
+  resolution: "@reatom/npm-react@npm:3.8.10"
+  dependencies:
+    "@reatom/core": "npm:^3.5.0"
+    "@reatom/effects": "npm:^3.7.3"
+    "@reatom/lens": "npm:^3.1.0"
+    "@reatom/utils": "npm:^3.9.0"
+    use-sync-external-store: "npm:^1.2.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/5df6cc237509226ccda5fdfcbaa5ee1ca70b52861a6a464e9b1db50da7887a6d5ad1f7a7d30f3223bb81a0929009345d17f5e6cd6d1845a149293200d2116a40
+  languageName: node
+  linkType: hard
+
+"@reatom/primitives@npm:^3.5.0, @reatom/primitives@npm:^3.6.0, @reatom/primitives@npm:^3.7.2":
+  version: 3.7.2
+  resolution: "@reatom/primitives@npm:3.7.2"
+  dependencies:
+    "@reatom/core": "npm:^3.1.1"
+    "@reatom/utils": "npm:^3.1.1"
+  checksum: 10c0/a7e1f64a865a5a505623d9a944168865c102ff954129c60d4b8f246f19950c94ab9ae08376afd7a734e127bb261c75760c6e649f517276ef5410af454cff45c4
+  languageName: node
+  linkType: hard
+
+"@reatom/utils@npm:^3.1.0, @reatom/utils@npm:^3.1.1, @reatom/utils@npm:^3.3.0, @reatom/utils@npm:^3.4.0, @reatom/utils@npm:^3.5.0, @reatom/utils@npm:^3.9.0, @reatom/utils@npm:^3.9.2":
+  version: 3.9.2
+  resolution: "@reatom/utils@npm:3.9.2"
+  checksum: 10c0/df0515d25cac71d7a01590d0cf8866b156e5f50cf543ebd564bec6b8bd8b950bb11bf90221745d244e800fae58b3b6e88e03d71a485a70f0f781fa6686ab7468
+  languageName: node
+  linkType: hard
+
 "@remirror/core-constants@npm:^2.0.2":
   version: 2.0.2
   resolution: "@remirror/core-constants@npm:2.0.2"
@@ -17714,6 +17826,8 @@ __metadata:
     "@floating-ui/react": "npm:^0.26.9"
     "@hello-pangea/dnd": "npm:^16.3.0"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.1.1"
+    "@reatom/framework": "npm:^3.4.48"
+    "@reatom/npm-react": "npm:^3.8.10"
     "@rollup/plugin-alias": "npm:^5.0.1"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-replace": "npm:^5.0.5"
@@ -25295,6 +25409,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "use-sync-external-store@npm:1.2.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/23b1597c10adf15b26ade9e8c318d8cc0abc9ec0ab5fc7ca7338da92e89c2536abd150a5891bf076836c352fdfa104fc7231fb48f806fd9960e0cbe03601abaf
   languageName: node
   linkType: hard
 

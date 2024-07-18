@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import {
   Box,
   BoxProps,
@@ -104,7 +104,7 @@ export const ScrollArea = factory<ScrollAreaFactory>((_props, ref) => {
     ...others
   } = props;
 
-  const [scrollbarHovered, setScrollbarHovered] = useState(false);
+  const [scrollbarHovered, setScrollbarHovered] = useAtom(false);
 
   const getStyles = useStyles<ScrollAreaFactory>({
     name: 'ScrollArea',

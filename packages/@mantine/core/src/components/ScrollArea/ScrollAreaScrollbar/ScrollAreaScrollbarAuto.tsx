@@ -1,4 +1,5 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useDebouncedCallback } from '@mantine/hooks';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { useResizeObserver } from '../use-resize-observer';
@@ -15,7 +16,7 @@ export const ScrollAreaScrollbarAuto = forwardRef<HTMLDivElement, ScrollAreaScro
   (props, ref) => {
     const context = useScrollAreaContext();
     const { forceMount, ...scrollbarProps } = props;
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useAtom(false);
     const isHorizontal = props.orientation === 'horizontal';
 
     const handleResize = useDebouncedCallback(() => {

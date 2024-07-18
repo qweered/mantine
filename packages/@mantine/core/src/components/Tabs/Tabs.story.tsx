@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { IconPackage } from '@tabler/icons-react';
 import { Tabs, TabsProps } from './Tabs';
 
@@ -151,7 +151,7 @@ export const AllowDeactivation = () => (
 );
 
 export const Controlled = () => {
-  const [tab, setTab] = useState<string | null>('react');
+  const [tab, setTab] = useAtom<string | null>('react');
   return (
     <Wrapper value={tab} onChange={setTab} allowTabDeactivation>
       {base}
@@ -295,7 +295,7 @@ export const Unstyled = () => (
 );
 
 export const DynamicTabs = () => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useAtom(1);
   const list = Array(count)
     .fill(0)
     .map((_, index) => index.toString());

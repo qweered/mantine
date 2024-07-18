@@ -35,7 +35,7 @@ export function DirectionProvider({
   initialDirection = 'ltr',
   detectDirection = true,
 }: DirectionProviderProps) {
-  const [dir, setDir] = useState<Direction>(initialDirection);
+  const [dir, setDir] = useState<Direction>(initialDirection); // TODO: Refactor to useAtom
 
   const setDirection = (direction: Direction) => {
     setDir(direction);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { ScrollArea } from './ScrollArea';
 
 export default { title: 'ScrollArea' };
@@ -44,7 +44,7 @@ export function Unstyled() {
 }
 
 export function OnScrollChange() {
-  const [scrollPosition, onScrollPositionChange] = useState({ x: 0, y: 0 });
+  const [scrollPosition, onScrollPositionChange] = useAtom({ x: 0, y: 0 });
   return (
     <div style={{ padding: 40, maxWidth: 300 }}>
       <ScrollArea h={200} onScrollPositionChange={onScrollPositionChange}>

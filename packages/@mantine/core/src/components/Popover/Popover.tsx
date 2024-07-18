@@ -1,4 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import { useClickOutside, useId } from '@mantine/hooks';
 import {
   createVarsResolver,
@@ -45,7 +46,7 @@ export interface __PopoverProps {
   /** Called when dropdown position changes */
   onPositionChange?: (position: FloatingPosition) => void;
 
-  /** `useEffect` dependencies to force update dropdown position, `[]` by default */
+  /** `useUpdate` dependencies to force update dropdown position, `[]` by default */
   positionDependencies?: any[];
 
   /** Called when dropdown closes */
@@ -233,8 +234,8 @@ export function Popover(_props: PopoverProps) {
   });
 
   const arrowRef = useRef<HTMLDivElement | null>(null);
-  const [targetNode, setTargetNode] = useState<HTMLElement | null>(null);
-  const [dropdownNode, setDropdownNode] = useState<HTMLElement | null>(null);
+  const [targetNode, setTargetNode] = useAtom<HTMLElement | null>(null);
+  const [dropdownNode, setDropdownNode] = useAtom<HTMLElement | null>(null);
   const { dir } = useDirection();
 
   const uid = useId(id);

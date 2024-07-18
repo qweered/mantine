@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
+import { useAtom, useUpdate } from '@reatom/npm-react';
 import { useCallbackRef, useDebouncedCallback, useMergedRef } from '@mantine/hooks';
 import { useScrollAreaContext } from '../ScrollArea.context';
 import { Sizes } from '../ScrollArea.types';
@@ -36,7 +37,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>((props, forw
     ...scrollbarProps
   } = props;
   const context = useScrollAreaContext();
-  const [scrollbar, setScrollbar] = useState<HTMLDivElement | null>(null);
+  const [scrollbar, setScrollbar] = useAtom<HTMLDivElement | null>(null);
   const composeRefs = useMergedRef(forwardedRef, (node) => setScrollbar(node));
   const rectRef = useRef<ClientRect | null>(null);
   const prevWebkitUserSelectRef = useRef<string>('');
@@ -54,7 +55,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>((props, forw
     }
   };
 
-  useEffect(() => {
+  useUpdate(() => {
     const handleWheel = (event: WheelEvent) => {
       const element = event.target as HTMLElement;
       const isScrollbarWheel = scrollbar?.contains(element);
@@ -64,7 +65,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>((props, forw
     return () => document.removeEventListener('wheel', handleWheel, { passive: false } as any);
   }, [viewport, scrollbar, maxScrollPos, handleWheelScroll]);
 
-  useEffect(handleThumbPositionChange, [sizes, handleThumbPositionChange]);
+  useUpdate(handleThumbPositionChange, [sizes, handleThumbPositionChange]);
 
   useResizeObserver(scrollbar, handleResize);
   useResizeObserver(context.content, handleResize);

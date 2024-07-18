@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useAtom } from '@reatom/npm-react';
 import {
   inputDefaultProps,
   inputStylesApiSelectors,
@@ -160,7 +160,7 @@ describe('@mantine/core/Select', () => {
 
   it('supports dynamically changing data', async () => {
     const Wrapper: React.FunctionComponent = () => {
-      const [data, setData] = useState([{ value: '1', label: 'initial-label' }]);
+      const [data, setData] = useAtom([{ value: '1', label: 'initial-label' }]);
       return (
         <>
           <Select label="First" data={data} value="1" />
@@ -180,8 +180,8 @@ describe('@mantine/core/Select', () => {
 
   it('allows to change controlled search value when value is controlled and selected', async () => {
     const Wrapper: React.FunctionComponent = () => {
-      const [value, setValue] = useState<string | null>('Angular');
-      const [searchValue, setSearchValue] = useState('');
+      const [value, setValue] = useAtom<string | null>('Angular');
+      const [searchValue, setSearchValue] = useAtom('');
 
       return (
         <Select

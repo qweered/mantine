@@ -1,7 +1,8 @@
 import './global.css';
 
+import { reatomContext } from '@reatom/npm-react';
 import { localStorageColorSchemeManager, MantineColorSchemeManager } from './color-scheme-managers';
-import { MantineContext, MantineStylesTransform } from './Mantine.context';
+import { ctx, MantineContext, MantineStylesTransform } from './Mantine.context';
 import { MantineClasses } from './MantineClasses';
 import { CSSVariablesResolver, MantineCssVariables } from './MantineCssVariables';
 import { MantineThemeProvider } from './MantineThemeProvider';
@@ -87,33 +88,34 @@ export function MantineProvider({
     respectReducedMotion: theme?.respectReducedMotion || false,
     getRootElement,
   });
-
   return (
-    <MantineContext.Provider
-      value={{
-        colorScheme,
-        setColorScheme,
-        clearColorScheme,
-        getRootElement,
-        classNamesPrefix,
-        getStyleNonce,
-        cssVariablesResolver,
-        cssVariablesSelector,
-        withStaticClasses,
-        stylesTransform,
-      }}
-    >
-      <MantineThemeProvider theme={theme}>
-        {withCssVariables && (
-          <MantineCssVariables
-            cssVariablesSelector={cssVariablesSelector}
-            deduplicateCssVariables={deduplicateCssVariables}
-          />
-        )}
-        {withGlobalClasses && <MantineClasses />}
-        {children}
-      </MantineThemeProvider>
-    </MantineContext.Provider>
+    <reatomContext.Provider value={ctx}>
+      <MantineContext.Provider
+        value={{
+          colorScheme,
+          setColorScheme,
+          clearColorScheme,
+          getRootElement,
+          classNamesPrefix,
+          getStyleNonce,
+          cssVariablesResolver,
+          cssVariablesSelector,
+          withStaticClasses,
+          stylesTransform,
+        }}
+      >
+        <MantineThemeProvider theme={theme}>
+          {withCssVariables && (
+            <MantineCssVariables
+              cssVariablesSelector={cssVariablesSelector}
+              deduplicateCssVariables={deduplicateCssVariables}
+            />
+          )}
+          {withGlobalClasses && <MantineClasses />}
+          {children}
+        </MantineThemeProvider>
+      </MantineContext.Provider>
+    </reatomContext.Provider>
   );
 }
 
@@ -129,6 +131,7 @@ export interface HeadlessMantineProviderProps {
 
 export function HeadlessMantineProvider({ children, theme }: HeadlessMantineProviderProps) {
   return (
+    // <reatomContext.Provider value={ctx}> // FIXME: Is Reatom error regarding multiple context providers relevant here?
     <MantineContext.Provider
       value={{
         colorScheme: 'auto',
@@ -143,6 +146,7 @@ export function HeadlessMantineProvider({ children, theme }: HeadlessMantineProv
     >
       <MantineThemeProvider theme={theme}>{children}</MantineThemeProvider>
     </MantineContext.Provider>
+    // </reatomContext.Provider>
   );
 }
 
