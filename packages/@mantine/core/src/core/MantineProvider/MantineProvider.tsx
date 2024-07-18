@@ -132,20 +132,20 @@ export interface HeadlessMantineProviderProps {
 export function HeadlessMantineProvider({ children, theme }: HeadlessMantineProviderProps) {
   return (
     // <reatomContext.Provider value={ctx}> // FIXME: Is Reatom error regarding multiple context providers relevant here?
-      <MantineContext.Provider
-        value={{
-          colorScheme: 'auto',
-          setColorScheme: () => {},
-          clearColorScheme: () => {},
-          getRootElement: () => document.documentElement,
-          classNamesPrefix: 'mantine',
-          cssVariablesSelector: ':root',
-          withStaticClasses: false,
-          headless: true,
-        }}
-      >
-        <MantineThemeProvider theme={theme}>{children}</MantineThemeProvider>
-      </MantineContext.Provider>
+    <MantineContext.Provider
+      value={{
+        colorScheme: 'auto',
+        setColorScheme: () => {},
+        clearColorScheme: () => {},
+        getRootElement: () => document.documentElement,
+        classNamesPrefix: 'mantine',
+        cssVariablesSelector: ':root',
+        withStaticClasses: false,
+        headless: true,
+      }}
+    >
+      <MantineThemeProvider theme={theme}>{children}</MantineThemeProvider>
+    </MantineContext.Provider>
     // </reatomContext.Provider>
   );
 }
